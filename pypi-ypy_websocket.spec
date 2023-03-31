@@ -5,7 +5,7 @@
 #
 Name     : pypi-ypy_websocket
 Version  : 0.8.4
-Release  : 1
+Release  : 2
 URL      : https://files.pythonhosted.org/packages/b1/0b/8e936a41e15b8a8a034c9708062ee82f18f4ca6a969c443d3ea10a54f1ea/ypy_websocket-0.8.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/b1/0b/8e936a41e15b8a8a034c9708062ee82f18f4ca6a969c443d3ea10a54f1ea/ypy_websocket-0.8.4.tar.gz
 Summary  : WebSocket connector for Ypy
@@ -66,7 +66,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680275120
+export SOURCE_DATE_EPOCH=1680277552
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -76,6 +76,7 @@ export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -
 export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
+pypi-dep-fix.py . aiofiles
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
 export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
@@ -83,6 +84,7 @@ export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
+pypi-dep-fix.py . aiofiles
 python3 -m build --wheel --skip-dependency-check --no-isolation
 
 popd
@@ -93,6 +95,7 @@ rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-ypy_websocket
 cp %{_builddir}/ypy_websocket-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-ypy_websocket/9465b3e2ebae3e9685ba948c32cb340bceb4b12c || :
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
+pypi-dep-fix.py %{buildroot} aiofiles
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
