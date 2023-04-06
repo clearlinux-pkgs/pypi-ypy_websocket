@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-ypy_websocket
-Version  : 0.8.4
-Release  : 2
-URL      : https://files.pythonhosted.org/packages/b1/0b/8e936a41e15b8a8a034c9708062ee82f18f4ca6a969c443d3ea10a54f1ea/ypy_websocket-0.8.4.tar.gz
-Source0  : https://files.pythonhosted.org/packages/b1/0b/8e936a41e15b8a8a034c9708062ee82f18f4ca6a969c443d3ea10a54f1ea/ypy_websocket-0.8.4.tar.gz
+Version  : 0.9.0
+Release  : 3
+URL      : https://files.pythonhosted.org/packages/ad/26/927616d09366d016252ce20b00e5888ab14e1af94609ddc0f2289907d98d/ypy_websocket-0.9.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/ad/26/927616d09366d016252ce20b00e5888ab14e1af94609ddc0f2289907d98d/ypy_websocket-0.9.0.tar.gz
 Summary  : WebSocket connector for Ypy
 Group    : Development/Tools
 License  : MIT
@@ -46,8 +46,8 @@ Summary: python3 components for the pypi-ypy_websocket package.
 Group: Default
 Requires: python3-core
 Provides: pypi(ypy_websocket)
-Requires: pypi(aiofiles)
 Requires: pypi(aiosqlite)
+Requires: pypi(anyio)
 Requires: pypi(y_py)
 
 %description python3
@@ -55,10 +55,10 @@ python3 components for the pypi-ypy_websocket package.
 
 
 %prep
-%setup -q -n ypy_websocket-0.8.4
-cd %{_builddir}/ypy_websocket-0.8.4
+%setup -q -n ypy_websocket-0.9.0
+cd %{_builddir}/ypy_websocket-0.9.0
 pushd ..
-cp -a ypy_websocket-0.8.4 buildavx2
+cp -a ypy_websocket-0.9.0 buildavx2
 popd
 
 %build
@@ -66,7 +66,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680277552
+export SOURCE_DATE_EPOCH=1680824590
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
