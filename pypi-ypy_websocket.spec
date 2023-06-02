@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-ypy_websocket
-Version  : 0.9.0
-Release  : 3
-URL      : https://files.pythonhosted.org/packages/ad/26/927616d09366d016252ce20b00e5888ab14e1af94609ddc0f2289907d98d/ypy_websocket-0.9.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/ad/26/927616d09366d016252ce20b00e5888ab14e1af94609ddc0f2289907d98d/ypy_websocket-0.9.0.tar.gz
+Version  : 0.10.0
+Release  : 4
+URL      : https://files.pythonhosted.org/packages/bf/6d/a4ee9102b83dc78a7d20519f65e5181a780e04e8a1703d6671508036968a/ypy_websocket-0.10.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/bf/6d/a4ee9102b83dc78a7d20519f65e5181a780e04e8a1703d6671508036968a/ypy_websocket-0.10.0.tar.gz
 Summary  : WebSocket connector for Ypy
 Group    : Development/Tools
 License  : MIT
@@ -55,10 +55,10 @@ python3 components for the pypi-ypy_websocket package.
 
 
 %prep
-%setup -q -n ypy_websocket-0.9.0
-cd %{_builddir}/ypy_websocket-0.9.0
+%setup -q -n ypy_websocket-0.10.0
+cd %{_builddir}/ypy_websocket-0.10.0
 pushd ..
-cp -a ypy_websocket-0.9.0 buildavx2
+cp -a ypy_websocket-0.10.0 buildavx2
 popd
 
 %build
@@ -66,15 +66,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680824590
+export SOURCE_DATE_EPOCH=1685720769
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 pypi-dep-fix.py . aiofiles
 python3 -m build --wheel --skip-dependency-check --no-isolation
