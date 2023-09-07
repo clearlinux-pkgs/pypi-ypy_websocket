@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-ypy_websocket
-Version  : 0.12.2
-Release  : 8
-URL      : https://files.pythonhosted.org/packages/72/37/2ac239eddfee9a047cfa8f4f11ae80fe0e16090effc6fb6c9c9ad5d7215e/ypy_websocket-0.12.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/72/37/2ac239eddfee9a047cfa8f4f11ae80fe0e16090effc6fb6c9c9ad5d7215e/ypy_websocket-0.12.2.tar.gz
+Version  : 0.12.3
+Release  : 9
+URL      : https://files.pythonhosted.org/packages/0d/95/ca35b63920f3962dc219c6ea33c9edc318dd626d989b595a423cefbfcfe3/ypy_websocket-0.12.3.tar.gz
+Source0  : https://files.pythonhosted.org/packages/0d/95/ca35b63920f3962dc219c6ea33c9edc318dd626d989b595a423cefbfcfe3/ypy_websocket-0.12.3.tar.gz
 Summary  : WebSocket connector for Ypy
 Group    : Development/Tools
 License  : MIT
@@ -57,10 +57,10 @@ python3 components for the pypi-ypy_websocket package.
 
 
 %prep
-%setup -q -n ypy_websocket-0.12.2
-cd %{_builddir}/ypy_websocket-0.12.2
+%setup -q -n ypy_websocket-0.12.3
+cd %{_builddir}/ypy_websocket-0.12.3
 pushd ..
-cp -a ypy_websocket-0.12.2 buildavx2
+cp -a ypy_websocket-0.12.3 buildavx2
 popd
 
 %build
@@ -68,7 +68,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1693495981
+export SOURCE_DATE_EPOCH=1694101943
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
