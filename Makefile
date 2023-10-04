@@ -1,5 +1,5 @@
 PKG_NAME := pypi-ypy_websocket
-URL = https://files.pythonhosted.org/packages/0d/95/ca35b63920f3962dc219c6ea33c9edc318dd626d989b595a423cefbfcfe3/ypy_websocket-0.12.3.tar.gz
+URL = https://files.pythonhosted.org/packages/68/d1/a49775fddf5d1e0c967e8dee21d6eee6f88e4280762e6099f0914cf58491/ypy_websocket-0.12.4.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
